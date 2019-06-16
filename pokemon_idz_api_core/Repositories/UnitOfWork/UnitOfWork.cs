@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using pokemon_idz_api_core.Models;
 using pokemon_idz_api_core.Models.Context;
+using pokemon_idz_api_core.Repositories.GenericRepository;
 
 namespace pokemon_idz_api_core.Repositories.UnitOfWork
 {
