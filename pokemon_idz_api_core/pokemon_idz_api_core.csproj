@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Dtos\" />
+    <Folder Include="Repositories\Interfaces\" />
+    <Folder Include="Services\Interfaces\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pokemon-idz-api-core", "pokemon-idz-api-core\pokemon-idz-api-core.csproj", "{397EE075-9E06-4C3C-992A-8345734288DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pokemon_idz_api_core", "pokemon_idz_api_core\pokemon_idz_api_core.csproj", "{29205C6D-BC85-4B7F-A5F5-B16F2182F230}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{397EE075-9E06-4C3C-992A-8345734288DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{397EE075-9E06-4C3C-992A-8345734288DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{397EE075-9E06-4C3C-992A-8345734288DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{397EE075-9E06-4C3C-992A-8345734288DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29205C6D-BC85-4B7F-A5F5-B16F2182F230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29205C6D-BC85-4B7F-A5F5-B16F2182F230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29205C6D-BC85-4B7F-A5F5-B16F2182F230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29205C6D-BC85-4B7F-A5F5-B16F2182F230}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {33223727-771B-4BA2-AA37-B65A021636F4}
+		SolutionGuid = {84EC3071-408A-404A-845A-12D093938525}
 	EndGlobalSection
 EndGlobal
