@@ -1,0 +1,1 @@
+# pokemon-idz-api-core
