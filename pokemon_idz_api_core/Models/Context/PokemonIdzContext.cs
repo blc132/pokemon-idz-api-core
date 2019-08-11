@@ -8,14 +8,14 @@ namespace pokemon_idz_api_core.Models.Context
 {
     public class PokemonIdzContext: DbContext
     {
+        public PokemonIdzContext()
+        {
+        }
+
+        public PokemonIdzContext(DbContextOptions<PokemonIdzContext> options) : base(options) { }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Battle> Battles { get; set; }
         public DbSet<UserPokemon> UsersPokemons { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=PokemonIdz;Integrated Security=True");
-        }
     }
 }

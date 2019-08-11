@@ -18,6 +18,7 @@ namespace pokemon_idz_api_core.Services
         public UserService(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public User FindUserByEmail(string email)
