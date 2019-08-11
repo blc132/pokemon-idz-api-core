@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using pokemon_idz_api_core.Models;
 using pokemon_idz_api_core.Models.Context;
+using pokemon_idz_api_core.Repositories.DatabaseRepositories;
+using pokemon_idz_api_core.Repositories.DatabaseRepositories.Interfaces;
 using pokemon_idz_api_core.Repositories.GenericRepository;
 
 namespace pokemon_idz_api_core.Repositories.UnitOfWork
@@ -13,13 +15,13 @@ namespace pokemon_idz_api_core.Repositories.UnitOfWork
     {
         private readonly PokemonIdzContext _dbContext;
 
-        private IRepository<User> _userRepository;
-        private IRepository<UserPokemon> _userPokemonRepository;
-        private IRepository<Battle> _battleRepository;
+        private IUserRepository _userRepository;
+        private IUserPokemonRepository _userPokemonRepository;
+        private IBattleRepository _battleRepository;
 
-        public IRepository<User> UserRepository => _userRepository ?? (_userRepository = new GenericRepository<User>(_dbContext));
-        public IRepository<UserPokemon> UserPokemonRepository => _userPokemonRepository ?? (_userPokemonRepository = new GenericRepository<UserPokemon>(_dbContext));
-        public IRepository<Battle> BattleRepository => _battleRepository ?? (_battleRepository = new GenericRepository<Battle>(_dbContext));
+        public IUserRepository UserRepository => _userRepository ?? (_userRepository = new UserRepository(_dbContext));
+        public IUserPokemonRepository UserPokemonRepository => _userPokemonRepository ?? (_userPokemonRepository = new UserPokemonRepository(_dbContext));
+        public IBattleRepository BattleRepository => _battleRepository ?? (_battleRepository = new BattleRepository(_dbContext));
 
         public UnitOfWork(PokemonIdzContext dbContext)
         {
