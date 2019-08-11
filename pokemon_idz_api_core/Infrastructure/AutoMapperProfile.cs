@@ -14,6 +14,7 @@ namespace pokemon_idz_api_core.Infrastructure
         {
             CreateMap<User, GetUserDto>();
             CreateMap<User, LoginDto>();
+            CreateMap<RegisterDto, User>();
         }
     }
 }

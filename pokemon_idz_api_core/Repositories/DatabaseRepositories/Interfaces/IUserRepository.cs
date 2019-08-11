@@ -9,5 +9,7 @@ namespace pokemon_idz_api_core.Repositories.DatabaseRepositories.Interfaces
 {
     public interface IUserRepository: IRepository<User>
     {
+        User GetByEmail(string email);
+        User GetByLogin(string login);
     }
 }

@@ -9,5 +9,6 @@ namespace pokemon_idz_api_core.Repositories.DatabaseRepositories.Interfaces
 {
     public interface IUserPokemonRepository: IRepository<UserPokemon>
     {
+        List<int> GetByUserId(int userId);
     }
 }

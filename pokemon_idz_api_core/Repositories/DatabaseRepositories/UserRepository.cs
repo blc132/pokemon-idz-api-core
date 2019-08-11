@@ -14,5 +14,15 @@ namespace pokemon_idz_api_core.Repositories.DatabaseRepositories
         public UserRepository(PokemonIdzContext dbContext) : base(dbContext)
         {
         }
+
+        public User GetByEmail(string email)
+        {
+            return DbContext.Set<User>().SingleOrDefault(x => x.Email == email);
+        }
+
+        public User GetByLogin(string login)
+        {
+            return  DbContext.Set<User>().SingleOrDefault(x => x.Login == login);
+        }
     }
 }
