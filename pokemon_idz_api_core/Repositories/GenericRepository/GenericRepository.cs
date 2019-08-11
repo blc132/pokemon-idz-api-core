@@ -9,13 +9,13 @@ namespace pokemon_idz_api_core.Repositories.GenericRepository
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        private readonly PokemonIdzContext _dbContext;
-        private DbSet<T> DbSet => _dbContext.Set<T>();
+        protected readonly PokemonIdzContext DbContext;
+        private DbSet<T> DbSet => DbContext.Set<T>();
         public IQueryable<T> Entities => DbSet;
 
         public GenericRepository(PokemonIdzContext dbContext)
         {
-            _dbContext = dbContext;
+            DbContext = dbContext;
         }
 
         public void Remove(T entity)
@@ -30,7 +30,7 @@ namespace pokemon_idz_api_core.Repositories.GenericRepository
 
         public void Update(T entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            DbContext.Entry(entity).State = EntityState.Modified;
             DbSet.Attach(entity);
         }
 
@@ -41,12 +41,12 @@ namespace pokemon_idz_api_core.Repositories.GenericRepository
 
         public T Get(int id)
         {
-            return _dbContext.Set<T>().Find(id);
+            return DbContext.Set<T>().Find(id);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _dbContext.Set<T>().ToList();
+            return DbContext.Set<T>().ToList();
         }
     }
 }

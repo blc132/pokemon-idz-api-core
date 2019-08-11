@@ -10,7 +10,7 @@ using pokemon_idz_api_core.Services.Interfaces;
 
 namespace pokemon_idz_api_core.Services
 {
-    public class GameService: IGameService
+    public class GameService : IGameService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -69,7 +69,7 @@ namespace pokemon_idz_api_core.Services
                     _unitOfWork.Commit();
                 }
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }
@@ -79,17 +79,57 @@ namespace pokemon_idz_api_core.Services
 
         public GetUserTeamDto GetUserTeam(int userId)
         {
-            throw new NotImplementedException();
+            var user = _unitOfWork.UserRepository.Get(userId);
+            if (user == null)
+                return null;
+            List<int> pokemonIds = _unitOfWork.UserPokemonRepository.GetByUserId(userId);
+            GetUserTeamDto dto = new GetUserTeamDto(user.Login, pokemonIds, user.MainPokemonId);
+            return dto;
         }
 
         public bool SaveBattleResult(SaveBattleResult dto)
         {
-            throw new NotImplementedException();
+            User user = _unitOfWork.UserRepository.Get(dto.UserId);
+
+            if (user == null)
+                return false;
+
+            if (dto.Won)
+                user.Wins++;
+            else
+                user.Loses++;
+
+            try
+            {
+                _unitOfWork.Commit();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool SaveMainPokemon(SaveMainPokemonDto dto)
         {
-            throw new NotImplementedException();
+            User user = _unitOfWork.UserRepository.Get(dto.UserId);
+
+            if (user == null)
+                return false;
+
+            user.MainPokemonId = dto.MainPokemonId;
+
+            try
+            {
+                _unitOfWork.Commit();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
