@@ -38,5 +38,15 @@ namespace pokemon_idz_api_core.Repositories.GenericRepository
         {
             await DbSet.AddAsync(entity);
         }
+
+        public T Get(int id)
+        {
+            return _dbContext.Set<T>().Find(id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _dbContext.Set<T>().ToList();
+        }
     }
 }

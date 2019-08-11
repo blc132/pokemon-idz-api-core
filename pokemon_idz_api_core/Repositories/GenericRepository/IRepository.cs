@@ -12,5 +12,7 @@ namespace pokemon_idz_api_core.Repositories.GenericRepository
         void Add(T entity);
         void Update(T entity);
         Task AddAsync(T entity);
+        T Get(int id);
+        IEnumerable<T> GetAll();
     }
 }
