@@ -49,7 +49,32 @@ namespace pokemon_idz_api_core.Services
 
         public bool DeletePokemon(DeletePokemonDto dto)
         {
-            throw new NotImplementedException();
+            if (dto.PokemonId == 0 || dto.UserId == 0)
+                return false;
+
+            var user = _unitOfWork.UserRepository.Entities.FirstOrDefault(x => x.Id == dto.UserId);
+
+            if (user is null)
+                return false;
+
+            var userPokemon = _unitOfWork.UserPokemonRepository.Entities.FirstOrDefault(x => x.PokemonId == dto.PokemonId);
+
+            try
+            {
+                _unitOfWork.UserPokemonRepository.Remove(userPokemon);
+
+                if (userPokemon != null && user.MainPokemonId == userPokemon.PokemonId)
+                {
+                    user.MainPokemonId = 0;
+                    _unitOfWork.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public GetUserTeamDto GetUserTeam(int userId)
