@@ -39,8 +39,9 @@ namespace pokemon_idz_api_core.Services
             try
             {
                 _unitOfWork.UserPokemonRepository.Add(userPokemon);
+                _unitOfWork.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -128,7 +129,6 @@ namespace pokemon_idz_api_core.Services
             {
                 return false;
             }
-
             return true;
         }
     }

@@ -31,7 +31,7 @@ namespace pokemon_idz_api_core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<IUnitOfWork, UnitOfWork>();
@@ -60,7 +60,6 @@ namespace pokemon_idz_api_core
                 .AllowAnyHeader()
                 .AllowCredentials());
             app.UseMvc();
-
         }
     }
 }
