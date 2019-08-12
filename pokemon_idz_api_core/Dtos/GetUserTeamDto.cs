@@ -2,7 +2,7 @@
 
 namespace pokemon_idz_api_core.Dtos
 {
-    public class GetUserTeamDto 
+    public class GetUserTeamDto
     {
         public GetUserTeamDto(string login, List<int> pokemonIds, int mainPokemonId)
         {
@@ -10,6 +10,7 @@ namespace pokemon_idz_api_core.Dtos
             PokemonIds = pokemonIds;
             MainPokemonId = mainPokemonId;
         }
+
         public string Login { get; set; }
         public List<int> PokemonIds { get; set; }
         public int MainPokemonId { get; set; }

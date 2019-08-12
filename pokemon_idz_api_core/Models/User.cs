@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace pokemon_idz_api_core.Models
 {
     public class User
-    { 
+    {
         public int Id { get; set; }
         public string Login { get; set; }
         public string FirstName { get; set; }

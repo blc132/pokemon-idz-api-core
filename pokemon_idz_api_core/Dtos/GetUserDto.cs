@@ -2,7 +2,7 @@
 
 namespace pokemon_idz_api_core.Dtos
 {
-    public class GetUserDto 
+    public class GetUserDto
     {
         public int Id { get; set; }
         public string Login { get; set; }

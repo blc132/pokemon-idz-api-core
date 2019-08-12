@@ -14,7 +14,7 @@ namespace pokemon_idz_api_core.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
 
         public UserController(IUserService userService)
         {
@@ -44,13 +44,12 @@ namespace pokemon_idz_api_core.Controllers
         }
 
         [HttpGet]
-        [Route("all")]
+        [Route("getAll")]
         public IActionResult GetAll()
         {
             IList<GetUserDto> users = _userService.GetAll();
             return Ok(users);
         }
-
 
         [HttpGet]
         [Route("{userId}")]
@@ -61,6 +60,5 @@ namespace pokemon_idz_api_core.Controllers
                 return NotFound();
             return Ok(user);
         }
-
     }
 }
