@@ -12,7 +12,7 @@ namespace pokemon_idz_api_core.Services.Interfaces
         User FindUserByEmail(string email);
         User SaveUser(RegisterDto dto);
         User Login(LoginDto dto);
-        List<User> GetAll();
+        List<GetUserDto> GetAll();
         User GetById(int userId);
     }
 }

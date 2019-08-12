@@ -62,9 +62,11 @@ namespace pokemon_idz_api_core.Services
             return null;
         }
 
-        public List<User> GetAll()
+        public List<GetUserDto> GetAll()
         {
-            return _unitOfWork.UserRepository.GetAll().ToList();
+            List<User> users = _unitOfWork.UserRepository.GetAll().ToList();
+            List<GetUserDto> usersModel = _mapper.Map<List<User>, List<GetUserDto>>(users);
+            return usersModel;
         }
 
         public User GetById(int userId)

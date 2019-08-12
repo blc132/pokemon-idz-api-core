@@ -23,7 +23,7 @@ namespace pokemon_idz_api_core.Controllers
 
         [HttpPost]
         [Route("register")]
-        public ActionResult Register([FromBody] RegisterDto dto)
+        public IActionResult Register([FromBody] RegisterDto dto)
         {
             User user = _userService.SaveUser(dto);
 
@@ -34,13 +34,32 @@ namespace pokemon_idz_api_core.Controllers
 
         [HttpPost]
         [Route("login")]
-        public ActionResult Login([FromBody] LoginDto dto)
+        public IActionResult Login([FromBody] LoginDto dto)
         {
             User user = _userService.Login(dto);
 
             if (user == null)
                 return BadRequest();
             return Ok(new {user.Login, user.Id});
+        }
+
+        [HttpGet]
+        [Route("all")]
+        public IActionResult GetAll()
+        {
+            IList<GetUserDto> users = _userService.GetAll();
+            return Ok(users);
+        }
+
+
+        [HttpGet]
+        [Route("{userId}")]
+        public IActionResult GetById(int userId)
+        {
+            User user = _userService.GetById(userId);
+            if (user == null)
+                return NotFound();
+            return Ok(user);
         }
 
     }
